@@ -1,0 +1,233 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #f06, #9f6, #f06, #9f6);
+    color: #FFF;
+    overflow: hidden;  /* Hide overflowing hearts */
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;  /* Ensure it's above other elements */
+    text-align: center;
+    font-size: 1.5em;  /* Adjust to your liking */
+    color: #FFFFFF;  /* Change to the desired color */
+}
+
+h1 {
+    text-align: center;
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.quote, .message {
+    position: relative;
+    text-align: center;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+    display: none;  /* Hidden by default, shown via JavaScript */
+    z-index: 3;  /* Above the center GIF once it's clicked */
+    background-image: linear-gradient(90deg, rgba(255, 85, 150, 1), rgba(85, 255, 255, 1), rgba(255, 255, 85, 1));
+    background-size: 200% auto;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: shimmer 2s infinite, wrinkle 1s infinite alternate;
+    }
+
+.quote::before, .message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('path_to_sparkle_image.png') repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: sparkleRotate 10s infinite, sparkleFade 1s infinite;
+    opacity: 0.5;
+    }
+    
+@keyframes sparkleRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    
+@keyframes sparkleFade {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+ }
+
+@keyframes wrinkle {
+    0% { text-shadow: 2px 2px 4px rgba(255, 0, 255, 0.5); }
+    50% { text-shadow: -2px -2px 4px rgba(0, 255, 255, 0.5); }
+    100% { text-shadow: 2px 2px 4px rgba(255, 0, 255, 0.5); }
+}
+.quote {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em; 
+}
+
+.quote-display  {
+    color: transparent !important;
+    background-image: linear-gradient(90deg, rgba(255, 85, 150, 1), rgba(85, 255, 255, 1), rgba(255, 255, 85, 1)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    font-weight: bold;  /* Making text bolder */
+    
+}
+
+
+.message {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em; 
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* Heart Animation Styles */
+@keyframes float {
+    0% { transform: translateY(0px); opacity: 1; }
+    100% { transform: translateY(-50px); opacity: 0; }
+}
+@keyframes fadeInOut {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    80% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    animation: float 1.5s forwards;
+    pointer-events: none;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52%;
+    height: 80%;
+    border-radius: 50px 50px 0 0;
+    background: red;
+}
+.heart::before {
+    left: 50%;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Sparkling background */
+@keyframes sparkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('path_to_sparkle_image.png') repeat;
+    pointer-events: none;
+    z-index: -1;
+    animation: sparkle 1.5s infinite;
+}
+
+/* Center the main animation */
+#centerGif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transition: z-index 0.3s;
+}
+
+#centerGif.faded {
+    opacity: 0.2;  /* Adjust this value if you want it more or less faded */
+    transition: opacity 1s;  /* Smooth transition */
+}
+
+
+.cornerGif {
+    position: absolute;
+    width: 300px;
+    z-index: 0;
+}
+
+#topLeft {
+    top: 10%;
+    left: 10%;
+}
+
+#topRight {
+    top: 10%;
+    right: 10%;
+}
+
+#bottomLeft {
+    bottom: 10%;
+    left: 10%;
+}
+
+#bottomRight {
+    bottom: 10%;
+    right: 10%;
+}
+
+.start-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    background-color: #ff4f7f;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.start-btn:hover {
+    background-color: #ff7faa;
+}
+
+.start-btn:active {
+    background-color: #ff7f7f;
+}
+
+.hidden {
+    display: none;
+}
+

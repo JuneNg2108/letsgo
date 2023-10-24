@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration for You</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="gif-container">
+        <!-- Main animation in the center -->
+        <img src="animation.gif" alt="Main Animation" id="centerGif">
+    
+        <!-- Four corner animations -->
+        <img src="giphy.gif" alt="Corner Animation" class="cornerGif" id="topLeft">
+        <img src="giphy.gif" alt="Corner Animation" class="cornerGif" id="topRight">
+        <img src="giphy.gif" alt="Corner Animation" class="cornerGif" id="bottomLeft">
+        <img src="giphy.gif" alt="Corner Animation" class="cornerGif" id="bottomRight">
+    </div>
+    
+
+    <audio id="backgroundMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <div class="quote-display">
+            
+        </div>
+        
+        <!-- These messages seem unused given the previous requirements, 
+             but I'm leaving them here in case you have other plans for them. -->
+        <div class="message">
+            <p>Hey, just wanted to remind you that I'm always here for you. Keep pushing through, and remember to take breaks. ❤️</p>
+        </div>
+        <div class="message" id="firstMessage">You've Got This!</div>
+        <div class="message" id="secondMessage">Hey, just wanted to remind you that I'm always here for you. Keep pushing through, and remember to take breaks.</div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
